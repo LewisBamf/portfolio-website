@@ -103,7 +103,7 @@
         padding: 0.5rem 1rem;
         border-radius: 5px;
         color: var(--text);
-        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        background: linear-gradient(120deg, var(--secondary), var(--accent));
         transition: transform 0.3s, box-shadow 0.3s;
         cursor: pointer;
     }
