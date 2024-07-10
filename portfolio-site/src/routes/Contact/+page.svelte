@@ -351,19 +351,22 @@
     .social-media h2 {
         font-size: 2rem;
     }
+
+    
+.github-icon {
+    fill: #00FF75; /* Change icon color on hover */
 }
-    
-    @media (max-width: 600px) {
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-    
-        .hero p {
-            font-size: 1rem;
-        }
-    
-        .contact-form h2 {
-            font-size: 2rem;
-        }
-    }
+
+.twitter-icon {
+    fill: #1DA1F2; /* Change icon color on hover */
+}
+
+.linkedin-icon {
+    fill: #2867B2; /* Change icon color on hover */
+}
+
+.instagram-icon {
+    fill: #E4405F; /* Change icon color on hover */
+}
+}
     </style>

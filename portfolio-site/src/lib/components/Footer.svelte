@@ -6,15 +6,19 @@
         flex-direction: column;
         align-items: center;
       }
-  
+
       .footer-logo {
-        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1rem;
+        gap: 1rem;
       }
   
-      .footer-logo-img {
-        max-width: 150px; /* Adjust based on your logo size */
+      .logo {
+        width: 50px;
         height: auto;
-      }
+    }
   
       .footer-description {
         font-size: 14px;
@@ -126,6 +130,22 @@
     .social-media h2 {
         font-size: 2rem;
     }
+
+    .github-icon {
+    fill: #00FF75; /* Change icon color on small devices */
+}
+
+.twitter-icon {
+    fill: #1DA1F2; /* Change icon color on small devices */
+}
+
+.linkedin-icon {
+    fill: #2867B2; /* Change icon color on small devices */
+}
+
+.instagram-icon {
+    fill: #E4405F; /* Change icon color on small devices */
+}
 }
     </style>
 
@@ -134,7 +154,7 @@
     <div class="footer-content">
       <!-- Footer Logo and Description -->
       <div class="footer-logo">
-        <img src="src/assets/logo.svg" alt="Logo" class="footer-logo-img">
+        <img src="src/assets/logo.svg" alt="Logo" class="logo">
         <p class="footer-description">We are dedicated to providing the best services and products for our customers. Follow us on social media for the latest updates.</p>
       </div>
       
