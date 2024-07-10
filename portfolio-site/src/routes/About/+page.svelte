@@ -1,19 +1,28 @@
 <script>
-    import Navbar from '../lib/components/Navbar.svelte';
+    export const data = null;
+    import Navbar from '$lib/components/Navbar.svelte';
 </script>
 
 <main>
 
     <section class="hero">
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Here, you can explore my coding skills and projects.</p>
+            <h1>About Me</h1>
+            <p>Hello! I’m Lewis, a young developer from the UK.</p>
+        </div>
+    </section>
+
+    <section class="intro">
+        <div class="container">
+            <h2>My Journey</h2>
+            <p>I’m a 16-year-old coder with a passion for technology and innovation. I started programming as a hobby and quickly fell in love with it. My focus areas are web development, machine learning, and game development. I enjoy working on projects that challenge me and allow me to learn new skills.</p>
+            <p>In addition to coding, I like exploring new tech trends, participating in coding challenges, and contributing to open-source projects. I’m always on the lookout for exciting opportunities to grow and make a difference in the tech world.</p>
         </div>
     </section>
 
     <section class="skills">
         <div class="container">
-            <h2>Coding Skills</h2>
+            <h2>Skills & Technologies</h2>
             <ul>
                 <li>JavaScript</li>
                 <li>HTML & CSS</li>
@@ -27,18 +36,18 @@
 
     <section class="projects">
         <div class="container">
-            <h2>Projects</h2>
+            <h2>Featured Projects</h2>
             <div class="project">
                 <h3>Project 1</h3>
-                <p>Description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>A brief overview of a cool project I worked on. It demonstrates my skills in coding and problem-solving.</p>
             </div>
             <div class="project">
                 <h3>Project 2</h3>
-                <p>Description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Another exciting project showcasing my abilities in creating functional and innovative solutions.</p>
             </div>
             <div class="project">
                 <h3>Project 3</h3>
-                <p>Description of Project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>A look at a recent project that highlights my commitment to learning and improving as a developer.</p>
             </div>
         </div>
     </section>
@@ -47,25 +56,6 @@
 </main>
 
 <style>
-:global(:root) {
-    --text: hsl(210, 15%, 95%); /* Lighter text for better contrast */
-    --background: hsl(210, 30%, 10%); /* Slightly cooler and darker background */
-    --primary: hsl(204, 70%, 53%); /* A bit more vibrant and tech-inspired */
-    --secondary: hsl(160, 55%, 45%); /* Softer, complementary secondary color */
-    --accent: hsl(190, 50%, 30%); /* Muted teal for a subtle accent */
-    --shadow: hsla(0, 2%, 11%, 0.518); /* Darker color for shadows */
-    --heading-font: 'Poppins', sans-serif;
-    --body-font: 'Roboto', sans-serif;
-}
-
-
-:global(body) {
-    background-color: var(--background);
-    color: var(--text);
-    margin: 0;
-    font-family: var(--body-font);
-}
-
 main {
     padding: 2rem;
     padding-left: 0%;
@@ -81,7 +71,7 @@ main {
 .hero {
     text-align: center;
     padding: 6rem 1rem;
-    background: linear-gradient(360deg, var(--background), var(--accent));
+    background: linear-gradient(360deg, var(--background), var(--primary));
     color: var(--text);
     margin-bottom: 2rem;
 }
@@ -94,6 +84,22 @@ main {
 
 .hero p {
     font-size: 1.25rem;
+}
+
+.intro {
+    margin-bottom: 3rem;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-family: var(--heading-font);
+}
+
+.intro p {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .skills,
@@ -121,7 +127,7 @@ main {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     color: var(--text);
-    background: linear-gradient(120deg, var(--secondary), var(--accent));
+    background: linear-gradient(120deg, var(--secondary), var(--primary));
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
@@ -132,7 +138,7 @@ main {
 }
 
 .projects .project {
-    background: var(--accent);
+    background: var(--primary);
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -163,6 +169,7 @@ main {
     .hero p {
         font-size: 1rem;
     }
+    .intro h2,
     .skills h2,
     .projects h2 {
         font-size: 2rem;

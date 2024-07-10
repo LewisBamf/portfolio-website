@@ -1,8 +1,9 @@
 <script>
-    import Navbar from '../lib/components/Navbar.svelte';
+    import Navbar from '../components/Navbar.svelte';
 </script>
 
 <main>
+    <Navbar />
 
     <section class="hero">
         <div class="container">
@@ -42,8 +43,6 @@
             </div>
         </div>
     </section>
-
-    <Navbar />
 </main>
 
 <style>

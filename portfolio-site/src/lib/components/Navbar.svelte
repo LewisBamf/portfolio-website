@@ -1,12 +1,22 @@
 <script>
+    import { goto } from '$app/navigation'; // Import the goto function for navigation
+
     let isMenuOpen = false;
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
     }
+
+    function navigateTo(url) {
+        goto(url); // Use SvelteKit's goto function for navigation
+        if (window.innerWidth <= 853) {
+            toggleMenu(); // Close the menu after navigation only on mobile
+        }
+    }
 </script>
 
 <style>
+    /* Your existing styles */
     .navbar {
         display: flex;
         align-items: center;
@@ -23,7 +33,7 @@
     }
 
     .logo {
-        width: 50px; /* also controls height of navbar */
+        width: 50px;
         height: auto;
     }
 
@@ -37,6 +47,8 @@
         position: relative;
         cursor: pointer;
         color: var(--text);
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
     }
 
     .page:hover {
@@ -102,7 +114,7 @@
     .menu {
         position: absolute;
         top: 100%;
-        left: calc(-100% - 2rem); /* Start off-screen */
+        left: calc(-100% - 2rem);
         width: calc(100% - 2rem);
         padding: 1rem;
         background-color: var(--accent);
@@ -113,7 +125,7 @@
     }
 
     .menu.open {
-        left: 0%; /* Slide in from the left */
+        left: 0%;
     }
 
     .menu .page {
@@ -139,10 +151,10 @@
 <div class="navbar">
     <img src="src/assets/logo.svg" alt="Logo" class="logo">
     <div class="pages">
-        <div class="page">Page 1</div>
-        <div class="page">Page 2</div>
-        <div class="page">Page 3</div>
-        <div class="page">Page 4</div>
+        <button on:click={() => navigateTo('/')} on:keydown={(e) => {if (e.key === 'Enter') navigateTo('/')}} class="page" type="button" aria-label="Home">Home</button>
+        <button on:click={() => navigateTo('/Projects')} class="page" aria-label="Projects">Projects</button>
+        <button on:click={() => navigateTo('/About')} class="page" type="button" aria-label="About">About</button>
+        <button on:click={() => navigateTo('/Contact')} class="page" type="button" aria-label="Contact">Contact</button>
     </div>
     <button class="hamburger" on:click={toggleMenu}>
         <input type="checkbox" bind:checked={isMenuOpen}>
@@ -152,9 +164,9 @@
         </svg>
     </button>
     <div class="menu {isMenuOpen ? 'open' : ''}">
-        <div class="page">Page 1</div>
-        <div class="page">Page 2</div>
-        <div class="page">Page 3</div>
-        <div class="page">Page 4</div>
+        <button on:click={() => navigateTo('/')} on:keydown={(e) => {if (e.key === 'Enter') navigateTo('/')}} class="page" type="button" aria-label="Home">Home</button>
+        <button on:click={() => navigateTo('/Projects')} class="page" aria-label="Projects">Projects</button>
+        <button on:click={() => navigateTo('/About')} class="page" type="button" aria-label="About">About</button>
+        <button on:click={() => navigateTo('/Contact')} class="page" type="button" aria-label="Contact">Contact</button>
     </div>
 </div>
