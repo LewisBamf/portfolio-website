@@ -6,7 +6,8 @@
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
     }
-
+    
+    // @ts-ignore
     function navigateTo(url) {
         goto(url); // Use SvelteKit's goto function for navigation
         if (window.innerWidth <= 853) {

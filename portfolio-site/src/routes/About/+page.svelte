@@ -1,6 +1,7 @@
 <script>
     export const data = null;
     import Navbar from '$lib/components/Navbar.svelte';
+    import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <main>
@@ -23,39 +24,86 @@
     <section class="skills">
         <div class="container">
             <h2>Skills & Technologies</h2>
-            <ul>
-                <li>JavaScript</li>
-                <li>HTML & CSS</li>
-                <li>Svelte</li>
-                <li>C++</li>
-                <li>TensorFlow</li>
-                <li>Python</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>A brief overview of a cool project I worked on. It demonstrates my skills in coding and problem-solving.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Another exciting project showcasing my abilities in creating functional and innovative solutions.</p>
-            </div>
-            <div class="project">
-                <h3>Project 3</h3>
-                <p>A look at a recent project that highlights my commitment to learning and improving as a developer.</p>
+            <div class="skills-categories">
+                <div class="category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>HTML & CSS</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>Vue</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3>Libraries</h3>
+                    <ul>
+                        <li>Svelte</li>
+                        <li>TensorFlow</li>
+                        <li>SFML</li>
+                        <li>NumPy</li>
+                        <li>Unity</li>
+                        <li>Open GL</li>
+                        <li>Matplotlib</li>
+                        <li>Scikit-Learn</li>
+                        <li>Pandas</li>
+                        <li>Keras</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>Web Development</li>
+                        <li>Machine Learning</li>
+                        <li>Game Development</li>
+                        <li>Mobile Development</li>
+                        <li>Version Control (Git)</li>
+                        <li>APIs</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3>Other</h3>
+                    <ul>
+                        <ul>
+                            <li><strong>Problem Solving:</strong> Tackling challenges with creative solutions.</li>
+                            <li><strong>Open Source Contribution:</strong> Making a difference in open source projects.</li>
+                            <li><strong>Code Challenges:</strong> Thriving in coding competitions.</li>
+                            <li><strong>Tech News:</strong> Always up-to-date with the latest tech trends.</li>
+                            <li><strong>Project Management:</strong> Leading projects to success.</li>
+                            <li><strong>Team Collaboration:</strong> Working well with others.</li>
+                            <li><strong>Communication Skills:</strong> Sharing ideas clearly and effectively.</li>
+                            <li><strong>Time Management:</strong> Organizing time for maximum productivity.</li>
+                        </ul>                        
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <Navbar />
+    <Footer />
 </main>
 
 <style>
+:global(:root) {
+    --text: hsl(210, 15%, 95%);
+    --background: hsl(210, 30%, 10%);
+    --primary: hsl(204, 70%, 53%);
+    --secondary: hsl(160, 55%, 45%);
+    --accent: hsl(190, 50%, 30%);
+    --shadow: hsla(0, 2%, 11%, 0.518);
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+:global(body) {
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    font-family: var(--body-font);
+}
+
 main {
     padding: 2rem;
     padding-left: 0%;
@@ -102,14 +150,30 @@ main {
     line-height: 1.6;
 }
 
-.skills,
-.projects {
+.skills {
     margin-bottom: 3rem;
 }
 
-.skills h2,
-.projects h2 {
+.skills h2 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-family: var(--heading-font);
+}
+
+.skills-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.category h3 {
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--text);
     font-family: var(--heading-font);
@@ -137,31 +201,6 @@ main {
     box-shadow: 0 6px 12px var(--shadow);
 }
 
-.projects .project {
-    background: var(--primary);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-.projects .project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.projects .project h3 {
-    margin: 0;
-    font-size: 1.75rem;
-    color: var(--text);
-}
-
-.projects .project p {
-    margin: 0.75rem 0 0;
-}
-
 @media (max-width: 600px) {
     .hero h1 {
         font-size: 2.5rem;
@@ -170,8 +209,7 @@ main {
         font-size: 1rem;
     }
     .intro h2,
-    .skills h2,
-    .projects h2 {
+    .skills h2 {
         font-size: 2rem;
     }
 }

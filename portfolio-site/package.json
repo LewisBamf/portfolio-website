@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"emailjs-com": "^3.2.0",
 		"svelte-spa-router": "^4.0.1"
 	}
 }

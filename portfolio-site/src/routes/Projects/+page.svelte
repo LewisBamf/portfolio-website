@@ -9,20 +9,25 @@
             github: 'https://github.com/LewisBamf/pendulum-project'
         },
         {
-            title: 'Euler Physics Simulator',
-            description: 'A physics simulator using Euler integration to model motion and collisions in 2D space.',
-            github: 'https://github.com/yourusername/euler-physics-simulator'
+            title: 'Verlet Physics Simulator',
+            description: 'A physics simulator that uses Verlet integration to model rigid body dynamics and collisions in 2D space.',
+            github: 'https://github.com/LewisBamf/Verlet-Physics-sim'
         },
         {
-            title: 'Simple Chatbot using GPT-3',
-            description: 'A chatbot powered by OpenAI’s GPT-3 API to generate human-like responses in real-time.',
-            github: 'https://github.com/yourusername/simple-chatbot-gpt3'
+            title: 'Using tensorflow to solve the MNIST database',
+            description: 'A simple neural network using TensorFlow to classify handwritten digits from the MNIST database.',
+            github: 'https://github.com/LewisBamf/tensorflow-test-Greyscale-Handdrawn-Images'
         },
         {
             title: 'Personal Portfolio',
             description: 'My own portfolio website built with Svelte to showcase my skills and projects.',
-            github: 'https://github.com/yourusername/personal-portfolio'
-        }
+            github: 'https://github.com/LewisBamf/portfolio-website'
+        },
+        {
+            title: 'Euclidean Physics Simulation',
+            description: 'A physics simulation using Euclidean geometry to model rigid body dynamics and collisions in 2D space.',
+            github: 'https://github.com/LewisBamf/Physics-init'
+        },
     ];
 </script>
 
