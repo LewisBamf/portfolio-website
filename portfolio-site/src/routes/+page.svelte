@@ -46,95 +46,124 @@
 </main>
 
 <style>
-    :global(:root) {
-        --text: hsl(210, 20%, 94%);
-        --background: hsl(206, 35%, 9%);
-        --primary: hsl(199, 51%, 51%);
-        --secondary: hsl(157, 64%, 47%);
-        --accent: hsl(177, 57%, 24%);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+:global(:root) {
+    --text: hsl(210, 15%, 95%); /* Lighter text for better contrast */
+    --background: hsl(210, 30%, 10%); /* Slightly cooler and darker background */
+    --primary: hsl(204, 70%, 53%); /* A bit more vibrant and tech-inspired */
+    --secondary: hsl(160, 55%, 45%); /* Softer, complementary secondary color */
+    --accent: hsl(190, 50%, 30%); /* Muted teal for a subtle accent */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
 
-    :global(body) {
-        background-color: var(--background);
-        color: var(--text);
-        margin: 0;
-    }
 
-    main {
-        padding: 2rem;
-    }
+:global(body) {
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    font-family: var(--body-font);
+}
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 1rem;
-    }
+main {
+    padding: 2rem;
+    padding-left: 0%;
+    padding-right: 0%;
+}
 
-    .hero {
-        text-align: center;
-        padding: 4rem 1rem;
-        background: var(--primary);
-        color: var(--text);
-        margin-bottom: 2rem;
-    }
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
 
-    .skills,
-    .projects {
-        margin-bottom: 2rem;
-    }
+.hero {
+    text-align: center;
+    padding: 6rem 1rem;
+    background: linear-gradient(360deg, var(--background), var(--accent));
+    color: var(--text);
+    margin-bottom: 2rem;
+}
 
+.hero h1 {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+}
+
+.hero p {
+    font-size: 1.25rem;
+}
+
+.skills,
+.projects {
+    margin-bottom: 3rem;
+}
+
+.skills h2,
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-family: var(--heading-font);
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills li {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    color: var(--text);
+    background: linear-gradient(120deg, var(--secondary), var(--accent));
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.skills li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.projects .project {
+    background: var(--accent);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.projects .project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.projects .project h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--text);
+}
+
+.projects .project p {
+    margin: 0.75rem 0 0;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
     .skills h2,
     .projects h2 {
         font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--text);
     }
-
-    .skills ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .skills li {
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        color: var(--text);
-        background: linear-gradient(120deg, var(--secondary), var(--accent));
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-
-    .skills li:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .projects .project {
-        background: var(--accent);
-        padding: 1rem;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-        color: var(--text);
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-
-    .projects .project:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .projects .project h3 {
-        margin: 0;
-        font-size: 1.5rem;
-        color: var(--text);
-    }
-
-    .projects .project p {
-        margin: 0.5rem 0 0;
-    }
+}
 </style>
