@@ -1,6 +1,7 @@
 <script>
     import Navbar from '$lib/components/Navbar.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    import '../../global.css';
 
     // Example projects - replace these with your actual projects
     const projects = [

@@ -2,6 +2,7 @@
     export const data = null;
     import Navbar from '$lib/components/Navbar.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    import '../../global.css';
 </script>
 
 <main>
