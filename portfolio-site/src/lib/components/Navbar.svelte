@@ -121,13 +121,15 @@
         padding: 1rem;
         background-color: var(--accent);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        transition: left 0.3s ease-in-out;
+        transition: left 0.4s ease-in-out;
         align-content: center;
         justify-content: center;
+        
     }
 
     .menu.open {
         left: 0%;
+        text-align: center;
     }
 
     .menu .page {
@@ -137,6 +139,8 @@
         align-content: center;
         justify-content: center;
         text-align: center;
+        text-align: center;
+        font-size: 2rem;
     }
 
     @media (max-width: 853px) {
