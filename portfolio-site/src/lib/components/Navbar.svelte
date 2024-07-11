@@ -1,12 +1,13 @@
 <script>
     import { goto } from '$app/navigation'; // Import the goto function for navigation
+    import logo from '../../assets/logo.svg';
 
     let isMenuOpen = false;
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
     }
-    
+
     // @ts-ignore
     function navigateTo(url) {
         goto(url); // Use SvelteKit's goto function for navigation
@@ -150,7 +151,7 @@
 </style>
 
 <div class="navbar">
-    <img src="src/assets/logo.svg" alt="Logo" class="logo">
+    <img src={logo} alt="Logo" class="logo">
     <div class="pages">
         <button on:click={() => navigateTo('/')} on:keydown={(e) => {if (e.key === 'Enter') navigateTo('/')}} class="page" type="button" aria-label="Home">Home</button>
         <button on:click={() => navigateTo('/Projects')} class="page" aria-label="Projects">Projects</button>

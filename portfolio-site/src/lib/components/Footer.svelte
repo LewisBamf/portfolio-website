@@ -154,7 +154,7 @@
     <div class="footer-content">
       <!-- Footer Logo and Description -->
       <div class="footer-logo">
-        <img src="src/assets/logo.svg" alt="Logo" class="logo">
+        <img src={logo} alt="Logo" class="logo">
         <p class="footer-description">We are dedicated to providing the best services and products for our customers. Follow us on social media for the latest updates.</p>
       </div>
       
@@ -178,3 +178,7 @@
       <p class="footer-bottom-text">© 2024 Your Company. All rights reserved.</p>
     </div>
 </div>
+
+<script>
+    import logo from '../../assets/logo.svg';
+</script>

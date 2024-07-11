@@ -8,4 +8,8 @@ export default defineConfig({
 			allow: ['..'],  // Allow access to the parent directory if needed
 		},
 	},
+	build: {
+		outDir: 'dist',
+		assetsDir: 'assets'
+	}
 });
