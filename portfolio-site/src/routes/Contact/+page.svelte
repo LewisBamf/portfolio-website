@@ -1,5 +1,6 @@
 <script>
     import Navbar from '$lib/components/Navbar.svelte';
+    import Footer from '$lib/components/Footer.svelte';
     import emailjs from 'emailjs-com';
 
     let name = '';
@@ -90,6 +91,7 @@
     </section>
 
     <Navbar />
+    <Footer />
 </main>
 
 <style>

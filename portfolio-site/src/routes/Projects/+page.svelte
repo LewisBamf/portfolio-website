@@ -1,5 +1,6 @@
 <script>
     import Navbar from '$lib/components/Navbar.svelte';
+    import Footer from '$lib/components/Footer.svelte';
 
     // Example projects - replace these with your actual projects
     const projects = [
@@ -58,6 +59,7 @@
     </section>
 
     <Navbar />
+    <Footer />
 </main>
 
 <style>
