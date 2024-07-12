@@ -11,7 +11,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         gap: 1rem;
       }
   
@@ -39,6 +39,7 @@
         max-width: 900px;
         margin: 0 auto;
         padding: 2rem 1rem;
+        padding-top: 0px;
     }
 
     .Links{

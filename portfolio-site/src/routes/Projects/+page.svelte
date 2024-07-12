@@ -88,16 +88,28 @@ a {
     fill: #00FF75; /* Change icon color on hover */
 }
 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
 .hero {
     text-align: center;
     padding: 6rem 1rem;
-    background: linear-gradient(360deg, var(--background), var(--primary));
+    background: linear-gradient(360deg, var(--background), var(--accent));
     color: var(--text);
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero h1 {
-    font-family: var(--heading-font);
+    font-family: var(--text);
     font-size: 3rem;
     margin: 0 0 1rem 0;
 }

@@ -1,20 +1,34 @@
 <script>
     import Footer from '$lib/components/Footer.svelte';
-import Navbar from '../lib/components/Navbar.svelte';
+    import Navbar from '../lib/components/Navbar.svelte';
+    import '../global.css';
+    import { goto } from '$app/navigation';
+
+    async function showMore() {
+        await goto('/About');
+        setTimeout(() => {
+            window.scrollTo(0, document.body.scrollHeight / 3);
+        }, 100);
+    }
+
+    async function DiscoverProjects() {
+        await goto('/Projects');
+    }
 </script>
 
 <main>
-
     <section class="hero">
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Here, you can explore my coding skills and projects.</p>
+            <h1 class="animate-title">Welcome to My Portfolio</h1>
+            <p class="animate-subtitle">Here, you can explore my coding skills and projects.</p>
+            <button on:click={DiscoverProjects} class="hero-button">Discover Projects</button>
         </div>
     </section>
 
     <section class="skills">
         <div class="container">
             <h2>Coding Skills</h2>
+            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
             <ul>
                 <li>JavaScript</li>
                 <li>HTML & CSS</li>
@@ -22,6 +36,8 @@ import Navbar from '../lib/components/Navbar.svelte';
                 <li>C++</li>
                 <li>TensorFlow</li>
                 <li>Python</li>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <li class="show-more" on:click={showMore}>Show more...</li>
             </ul>
         </div>
     </section>
@@ -64,23 +80,6 @@ import Navbar from '../lib/components/Navbar.svelte';
 </main>
 
 <style>
-:global(:root) {
-    --text: hsl(210, 15%, 95%); /* Lighter text for better contrast */
-    --background: hsl(210, 30%, 10%); /* Slightly cooler and darker background */
-    --primary: hsl(204, 70%, 53%); /* A bit more vibrant and tech-inspired */
-    --secondary: hsl(160, 55%, 45%); /* Softer, complementary secondary color */
-    --accent: hsl(190, 50%, 30%); /* Muted teal for a subtle accent */
-    --shadow: hsla(0, 2%, 11%, 0.518); /* Darker color for shadows */
-    --heading-font: 'Poppins', sans-serif;
-    --body-font: 'Roboto', sans-serif;
-}
-
-:global(body) {
-    background-color: var(--background);
-    color: var(--text);
-    margin: 0;
-    font-family: var(--body-font);
-}
 
 main {
     padding: 2rem;
@@ -100,16 +99,70 @@ main {
     background: linear-gradient(360deg, var(--background), var(--accent));
     color: var(--text);
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero h1 {
     font-family: var(--heading-font);
     font-size: 3rem;
     margin: 0 0 1rem 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideInFromTop 1s forwards;
 }
 
 .hero p {
     font-size: 1.25rem;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards, slideInFromBottom 1.5s forwards;
+}
+
+.hero-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: var(--text);
+    background-color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeIn 2s forwards, slideInFromBottom 1.5s forwards;
+}
+
+.hero-button:hover {
+    background-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px var(--shadow);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .skills,
@@ -139,12 +192,33 @@ main {
     color: var(--text);
     background: linear-gradient(120deg, var(--secondary), var(--accent));
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
 }
 
-.skills li:hover {
+.show-more {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.show-more:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px var(--shadow);
+}
+
+.show-more::before {
+ content: "";
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: var(--secondary);
+ transform: translateX(-100%);
+ transition: all .3s;
+ z-index: -1;
+}
+
+.show-more:hover::before {
+ transform: translateX(0);
 }
 
 .projects .project {
@@ -154,12 +228,6 @@ main {
     margin-bottom: 1.5rem;
     color: var(--text);
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-.projects .project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .projects .project h3 {
@@ -188,7 +256,7 @@ main {
 }
 
 .github-link:hover .github-icon {
-    fill: #00FF75; /* Change icon color on hover */
+    fill: #00FF75;
 }
 
 @media (max-width: 600px) {

@@ -120,7 +120,7 @@ main {
 .hero {
     text-align: center;
     padding: 6rem 1rem;
-    background: linear-gradient(360deg, var(--background), var(--primary));
+    background: linear-gradient(360deg, var(--background), var(--accent));
     color: var(--text);
     margin-bottom: 2rem;
 }
@@ -192,7 +192,7 @@ main {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     color: var(--text);
-    background: linear-gradient(120deg, var(--secondary), var(--primary));
+    background: linear-gradient(120deg, var(--secondary), var(--accent));
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
