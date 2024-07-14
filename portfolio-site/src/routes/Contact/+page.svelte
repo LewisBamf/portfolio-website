@@ -116,6 +116,7 @@
     
     .contact-form {
         margin-bottom: 3rem;
+        caret-color: white;
     }
     
     .contact-form h2 {
@@ -123,16 +124,19 @@
         margin-bottom: 1rem;
         color: var(--text);
         font-family: var(--heading-font);
+        caret-color: white;
     }
     
     .contact-form form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        caret-color: white;
     }
     
     .contact-form label {
         font-size: 1rem;
+        caret-color: white;
     }
     
     .contact-form input,
@@ -142,6 +146,7 @@
         border: 1px solid var(--text);
         background: var(--background);
         color: var(--text);
+        caret-color: white;
         font-size: 1rem;
     }
     

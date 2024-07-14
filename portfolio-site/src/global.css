@@ -8,6 +8,7 @@
     --shadow: hsla(0, 2%, 11%, 0.518); /* Darker color for shadows */
     --heading-font: 'Poppins', sans-serif;
     --body-font: 'Roboto', sans-serif;
+    caret-color: transparent; /* Hides the text cursor */
 }
 
 body {
@@ -15,4 +16,5 @@ body {
     color: var(--text);
     margin: 0;
     font-family: var(--body-font);
+    caret-color: transparent; /* Hides the text cursor */
 }

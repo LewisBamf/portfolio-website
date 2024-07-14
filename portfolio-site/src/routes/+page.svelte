@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
     import Footer from '$lib/components/Footer.svelte';
     import Navbar from '../lib/components/Navbar.svelte';
     import '../global.css';
+    import MongoDB from '../assets/1720864136354-911aff36-81a7-4397-ace0-307135cc8633_1.jpg';
     import { goto } from '$app/navigation';
+
+    let isOpen = false;
 
     async function showMore() {
         await goto('/About');
@@ -14,6 +17,16 @@
     async function DiscoverProjects() {
         await goto('/Projects');
     }
+
+    function toggleCertificate() {
+        isOpen = !isOpen;
+    }
+
+    function toggleCertificateContainer() {
+        if (isOpen == true) {
+            isOpen = false;
+        }
+    }
 </script>
 
 <main>
@@ -22,6 +35,21 @@
             <h1 class="animate-title">Welcome to My Portfolio</h1>
             <p class="animate-subtitle">Here, you can explore my coding skills and projects.</p>
             <button on:click={DiscoverProjects} class="hero-button">Discover Projects</button>
+        </div>
+    </section>
+
+    <section class='certificates'>
+        <div class="container">
+            <h2>Certificates</h2>
+            <h3>MongoDB</h3>
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore missing-declaration -->
+            <div class="certificate-container" on:click={toggleCertificateContainer} class:open={isOpen}>
+                <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <img src={MongoDB} alt="MongoDB certificate" class="certificate" on:click|stopPropagation={toggleCertificate} />
+            </div>
         </div>
     </section>
 
@@ -165,6 +193,47 @@ main {
     }
 }
 
+.certificate {
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transition properties for scaling and shadow */
+    width: 30%;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.certificate.open {
+    transform: scale(3); /* This scales up the certificate */
+    box-shadow: 0 12px 24px var(--shadow); /* This adds a shadow effect */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transition properties for scaling and shadow */
+}
+
+/* Container for the certificate */
+.certificate-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, width 0.5s ease, height 0.5s ease, background 0.5s ease; /* Transition properties for container */
+    overflow: visible; /* Ensure content doesn't overflow */
+}
+
+.certificate-container.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1); /* This should ensure that the container is not scaled */
+    opacity: 1; /* Ensure the container is fully visible */
+}
+
+
 .skills,
 .projects {
     margin-bottom: 3rem;
@@ -270,5 +339,14 @@ main {
     .projects h2 {
         font-size: 2rem;
     }
+    .certificate {
+    width: 100%;
+}
+
+.certificate.open {
+    transform: scale(1); /* This scales up the certificate */
+    box-shadow: 0 12px 24px var(--shadow); /* This adds a shadow effect */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transition properties for scaling and shadow */
+}
 }
 </style>
